@@ -1,0 +1,12 @@
+.layout{
+  min-height: 100vh;
+}
+
+.wrap{
+  position: fixed;
+  top: 70px;
+  bottom: 25px;
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+}
