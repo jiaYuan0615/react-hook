@@ -2,7 +2,7 @@ export default [
   {
     route: 'product',
     name: '產品頁面',
-    icon: 'pi pi-prime'
+    icon: 'pi pi-prime',
   },
   {
     route: 'shopping-cart',

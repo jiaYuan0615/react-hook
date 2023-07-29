@@ -11,7 +11,6 @@ export default function Product() {
     <>
       <div className="font-bold">
         Product
-        {' '}
         {isMobile ? 'Mobile' : 'Desktop'}
       </div>
       <Card name={name} />
