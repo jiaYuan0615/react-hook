@@ -2,16 +2,10 @@ import _ from "lodash"
 import { useLocation } from "react-router-dom"
 import "./Sidebar.scss"
 import menu from '../route'
-import { useEffect } from "react";
 
 export default function Sidebar({ display, goToRoute }) {
   const { pathname } = useLocation();
   const [currentRoute] = _.compact(pathname.split('/'))
-
-  useEffect(() => {
-    const { name } = menu.find(x => x.route == currentRoute);
-    document.title = name
-  }, [pathname])
 
   return (
     <div
