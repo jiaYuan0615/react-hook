@@ -1,50 +1,26 @@
 import _ from "lodash"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import "./Sidebar.scss"
+import menu from '../route'
 
-export default function Sidebar({ display }) {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const goToRoute = (path) => {
-    dispatch({
-      type: 'PUSH_GoToRoute',
-      navigate,
-      path
-    })
-  }
-
-  const menu = [
-    {
-      route: '/product',
-      name: '產品頁面',
-      icon: 'pi pi-prime'
-    },
-    {
-      route: '/shopping-cart',
-      name: '購物車',
-      icon: 'pi pi-shopping-cart'
-    },
-    {
-      route: '/checkout',
-      name: '結帳',
-      icon: 'pi pi-wallet'
-    }
-  ]
+export default function Sidebar({ display, goToRoute }) {
+  const { pathname } = useLocation();
+  const [currentRoute] = _.compact(pathname.split('/'))
 
   return (
     <div
-      className={`sidebar py-2 text-stone-50 font-bold ${display ? 'hidden' : ''}`}
+      className={`sidebar text-stone-50 font-bold ${display ? 'hidden' : ''}`}
     >
-      <div className="flex flex-col px-4 gap-y-4">
+      <div className="flex flex-col">
         {_.map(menu, (x, i) => {
           return (
-            <div key={i} className="flex gap-x-5 items-center">
+            <div
+              className={`flex gap-x-5 p-3 items-center link cursor-pointer ${currentRoute === x.route ? 'current' : ''}`}
+              key={i}
+              onClick={() => goToRoute(`/${x.route}`)}
+            >
               <i className={x.icon} style={{ fontSize: '1rem' }} />
-              <p
-                className="cursor-pointer"
-                onClick={() => goToRoute(x.route)}
-              >{x.name}</p>
+              <p>{x.name}</p>
             </div>
           )
         })}

@@ -8,7 +8,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: reducers,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: {
+      ignoreActions: ['PUSH_GoBack', 'PUSH_GoToRoute']
+    }
+  }).concat(sagaMiddleware)
 })
 
 export default store;

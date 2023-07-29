@@ -1,10 +1,12 @@
+@import '../mixin/color.scss';
+
 .footer{
-  background-color: #282c34;
+  background-color: $background-primary;
+  color: $text-primary;
   height: 25px;
   width: 100%;
   position: fixed;
   bottom: 0;
   right: 0;
-  color: aliceblue;
   z-index: 5;
 }

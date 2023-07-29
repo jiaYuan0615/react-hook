@@ -1,20 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Card from '../components/Card';
 
 export default function Product() {
   const { isMobile } = useSelector((state) => state.global);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const goToRoute = (path) => {
-    dispatch({
-      type: 'PUSH_GoToRoute',
-      navigate,
-      path,
-    });
-  };
 
   const name = 'React is awesome';
 
@@ -26,7 +15,6 @@ export default function Product() {
         {isMobile ? 'Mobile' : 'Desktop'}
       </div>
       <Card name={name} />
-      <button onClick={() => goToRoute('/checkout')}>結帳</button>
     </>
   );
 }

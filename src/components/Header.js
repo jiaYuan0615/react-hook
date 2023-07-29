@@ -1,4 +1,3 @@
-import { Button } from "primereact/button"
 import "./Header.scss"
 
 export default function Header() {
