@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Button } from 'primereact/button';
 
 import Footer from "../components/Footer";
@@ -8,18 +7,8 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import "./Global.scss"
 
-export default function Global() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+export default function Global({ goToRoute }) {
   const [visible, setVisible] = useState();
-
-  const goToRoute = (path) => {
-    dispatch({
-      type: 'PUSH_GoToRoute',
-      navigate,
-      path
-    })
-  }
 
   return (
     <div className="layout relative">
@@ -37,8 +26,13 @@ export default function Global() {
         }}
         onClick={() => setVisible(!visible)}
       />
-      <Sidebar display={visible} goToRoute={goToRoute}></Sidebar>
-      <div className={`p-2 wrap ${!visible ? 'expand' : ''}`}>
+      <Sidebar
+        display={visible}
+        goToRoute={goToRoute}
+      ></Sidebar>
+      <div
+        className={`p-2 wrap ${!visible ? 'expand' : ''}`}
+      >
         <Outlet />
       </div>
       <Footer></Footer>
