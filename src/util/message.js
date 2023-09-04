@@ -2,8 +2,7 @@ export function successMessage(title, content) {
   return {
     severity: 'success',
     summary: title,
-    detail: content,
-    sticky: true
+    detail: content
   }
 }
 
