@@ -7,12 +7,12 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import "./Global.scss"
 
-export default function Global({ goToRoute }) {
+export default function Global({ goToRoute, toast }) {
   const [visible, setVisible] = useState();
 
   return (
     <div className="layout relative">
-      <Header></Header>
+      <Header goToRoute={goToRoute} toast={toast} />
       <Button
         text
         icon="pi pi-bars"
@@ -29,13 +29,13 @@ export default function Global({ goToRoute }) {
       <Sidebar
         display={visible}
         goToRoute={goToRoute}
-      ></Sidebar>
+      />
       <div
         className={`p-2 wrap ${!visible ? 'expand' : ''}`}
       >
         <Outlet />
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   )
 }

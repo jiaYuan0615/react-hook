@@ -41,10 +41,17 @@ export default function App() {
 
   return (
     <>
-      <Toast ref={toast} />
+      <Toast ref={toast} position="top-center" />
       <Routes>
         <Route path="home" element={<Home />} />
-        <Route path="/" element={<Global goToRoute={goToRoute} />}>
+        <Route
+          path="/"
+          element={
+            <Global
+              goToRoute={goToRoute}
+              toast={toast}
+            />}
+        >
           <Route path="product" element={<Product />} />
           <Route path="shopping-cart" element={<ShoppingCart />} />
           <Route path="checkout" element={<Checkout />} />
