@@ -1,28 +1,33 @@
 import { Card } from 'primereact/card';
 import { useLocation } from 'react-router-dom';
-import { Toast } from 'primereact/toast';
-import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import './Auth.scss'
 import LoginForm from '../components/Form/LoginForm'
-import { successMessage } from '../util/message';
 
 export default function Auth({ goToRoute, toast }) {
+  const dispatch = useDispatch()
   const { pathname } = useLocation();
   const [currentRoute] = _.compact(pathname.split('/'))
+
+  function POST_Login(payload, callback) {
+    dispatch({ type: 'POST_Login', payload, callback })
+  }
 
   useEffect(() => {
     if (currentRoute) document.title = '會員登入'
   }, [pathname])
 
-  const showInfo = () => {
-    const message = successMessage("執行登入", "登入成功")
-    toast.current.show(message);
-  }
 
-  const handleSubmit = (e) => {
-    const callback = () => showInfo()
-    goToRoute('/product', callback)
+  const handleSubmit = (payload) => {
+    const callback = (params) => {
+      toast.current.show(params);
+      dispatch({ type: 'GET_AuthInfo' })
+      goToRoute('/product')
+    }
+
+    POST_Login(payload, callback)
   }
 
   return (

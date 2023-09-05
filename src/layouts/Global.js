@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Button } from 'primereact/button';
+import { useDispatch, useSelector } from "react-redux";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -8,11 +9,21 @@ import Sidebar from "../components/Sidebar";
 import "./Global.scss"
 
 export default function Global({ goToRoute, toast }) {
+  const dispatch = useDispatch()
+  const { auth } = useSelector((state) => state.auth)
   const [visible, setVisible] = useState();
+
+  useEffect(() => {
+    dispatch({ type: 'GET_AuthInfo' })
+  }, [])
 
   return (
     <div className="layout relative">
-      <Header goToRoute={goToRoute} toast={toast} />
+      <Header
+        goToRoute={goToRoute}
+        toast={toast}
+        auth={auth}
+      />
       <Button
         text
         icon="pi pi-bars"

@@ -10,7 +10,7 @@ import { renderValidateField } from '../../services/global'
 export default function LoginForm({ handleSubmit }) {
   const columns = [
     {
-      key: "account",
+      key: "username",
       label: "帳號",
       require: true,
       render: (

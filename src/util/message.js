@@ -13,3 +13,19 @@ export function infoMessage(title, content) {
     detail: content,
   }
 }
+
+export function errorMessage(title, content) {
+  return {
+    severity: 'error',
+    summary: title,
+    detail: content,
+  }
+}
+
+export function warningMessage(title, content) {
+  return {
+    severity: 'warning',
+    summary: title,
+    detail: content,
+  }
+}
