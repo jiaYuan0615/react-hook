@@ -33,10 +33,8 @@ export default function Auth({ goToRoute, toast }) {
   return (
     <div className="auth">
       <div className="cover"></div>
-      <Card className="card" title="會員登入">
-        <LoginForm
-          handleSubmit={(value) => handleSubmit(value)}
-        />
+      <Card className="login" title="會員登入">
+        <LoginForm handleSubmit={(value) => handleSubmit(value)} />
       </Card>
     </div>
   )

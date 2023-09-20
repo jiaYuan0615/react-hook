@@ -89,7 +89,7 @@ export default function LoginForm({ handleSubmit }) {
           touched,
           handleChange,
           handleBlur,
-          handleSubmit
+          handleSubmit,
         }) => {
           const handleOnChange = (e, key) => {
             const value = _.get(e, "value", _.get(e, 'target.value'));
