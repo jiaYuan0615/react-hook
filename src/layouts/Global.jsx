@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import "./Global.scss"
+import config from "../config";
 
 export default function Global({ goToRoute, toast }) {
   const dispatch = useDispatch()

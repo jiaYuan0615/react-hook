@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-
 import Card from '../components/Card';
 
 export default function Product() {
