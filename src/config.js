@@ -6,6 +6,6 @@ const api = {
 };
 
 export default {
-  api: `${api.protocol}://${api.host}${api.port ? "" : `:${api.port}`}${api.prefix}`,
+  api: `${api.protocol}://${api.host}${api.port ? `:${api.port}` : ""}${api.prefix}`,
 };
 
