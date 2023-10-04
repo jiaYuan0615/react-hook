@@ -128,6 +128,7 @@ export default function LoginForm({ handleSubmit }) {
                     type="submit"
                     className="w-full"
                     icon="pi pi-sign-in"
+                    title="登入"
                     label="登入"
                   />
                   <Button
@@ -136,6 +137,7 @@ export default function LoginForm({ handleSubmit }) {
                     severity="warning"
                     color="warning"
                     type="reset"
+                    title="清除"
                     label="清除"
                   />
                 </div>

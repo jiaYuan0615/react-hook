@@ -15,6 +15,7 @@ export default function Sidebar({ display, goToRoute }) {
         {_.map(menu, (x, i) => {
           return (
             <div
+              title={x.name}
               className={`flex gap-x-5 p-3 items-center link cursor-pointer ${currentRoute === x.route ? 'current' : ''}`}
               key={i}
               onClick={() => goToRoute(`/${x.route}`)}

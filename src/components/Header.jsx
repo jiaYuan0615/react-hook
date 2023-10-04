@@ -11,11 +11,12 @@ export default function Header({ goToRoute, toast, auth }) {
   return (
     <div className="header flex gap-x-3 justify-end w-full items-center">
       <div
+        title='登出系統'
         onClick={logout}
         className="items-center logout flex px-2 gap-x-2"
       >
         <div className="font-bold">{auth?.name}</div>
-        <div className="card font-bold">{auth?.card}</div>
+        <div className="user-card font-bold">{auth?.card}</div>
         <div>登出系統</div>
       </div>
     </div>

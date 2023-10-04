@@ -26,6 +26,7 @@ export default function Global({ goToRoute, toast }) {
         auth={auth}
       />
       <Button
+        title='面板'
         text
         icon="pi pi-bars"
         size="large"

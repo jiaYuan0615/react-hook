@@ -13,11 +13,11 @@ $header-height:70px;
   align-items: center;
 }
 
-.card::before{
+.user-card::before{
   content: '[ ';
 }
 
-.card::after{
+.user-card::after{
   content: ' ]';
 }
 

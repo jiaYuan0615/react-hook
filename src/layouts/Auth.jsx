@@ -6,6 +6,7 @@ import _ from 'lodash'
 
 import './Auth.scss'
 import LoginForm from '../components/Form/LoginForm'
+import EditorComponent from '../components/Editor';
 
 export default function Auth({ goToRoute, toast }) {
   const dispatch = useDispatch()
@@ -34,7 +35,7 @@ export default function Auth({ goToRoute, toast }) {
   return (
     <div className="auth">
       <div className="cover"></div>
-      <Card className="card" title="會員登入">
+      <Card className="loginCard" title="會員登入">
         <LoginForm
           handleSubmit={(value) => handleSubmit(value)}
         />

@@ -1,7 +1,11 @@
+import EditorComponent from "../components/Editor";
+import { useRef } from 'react';
+
 export default function Checkout() {
+  const editorRef = useRef(null);
   return (
     <>
-      <div className="font-bold">Checkout</div>
+      <EditorComponent refs={editorRef} />
     </>
   )
 }
